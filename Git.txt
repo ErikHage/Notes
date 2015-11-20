@@ -1,0 +1,39 @@
+*********GENERAL COMMANDS**********
+
+which git: 	path to git install
+git --version:  git version installed
+
+git help <command name>
+
+*********CONFIG**********
+
+--set config
+git config --system: system level config, stored in etc/gitconfig
+git config --global: user level config, stored in $HOME/.gitconfig
+git config: project level config, stored in <project>/.git/config
+
+example: git config --global user.name "Erik Hage"
+         git config --global user.email "ehage4@gmail.com"
+
+--check config
+git config --list
+git config user.name
+
+--set default text editor
+git config --global core.editor "path to exe file/ launch command"
+
+--use colors
+git config --global color.ui true
+
+*********BASIC LOCAL COMMANDS**********
+
+--initialize
+git init
+
+--commit
+git add .: add all changes to staging
+git commit -m "message here": commit staged changes
+
+--commit log
+
+
