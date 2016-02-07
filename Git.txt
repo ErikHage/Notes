@@ -115,6 +115,112 @@ git ls-tree <tree-ish> : ex -> git ls-tree HEAD
 
 *********BRANCHING COMMANDS**********
 
+--view branches
+git branch
+git branch <branchname>
+
+--switching branches
+git checkout <branchname>
+git checkout -b <branchname> : create and switch
+
+--comparing branches
+git diff <branch1>..<branch2>
+git branch --merged : all branches included in current branch
+
+--renaming branches
+git branch -m <branchname> <newname>
+
+--deleting branches
+git branch -d <branchname> : can't delete if checked out, warning if not fully merged
+git branch -D <branchname> : override warning if not fully merged
+
+--merging code
+git merge <branchname> : be in recieving branch
+
+--fast forward merge vs true merge
+FF merge - if HEAD is an ancestor of branch (no separate commits)
+git merge --ff-only <branchname>
+	SHA->SHA->HEAD
+		      \
+			->Branch
+
+True merge - has a merge commit
+git merge --no-ff <branchname>
+
+--resolving merge conflicts
+1) git merge --abort : aborts merge
+2) resolve conflicts manually, then add + commit
+3) use git merge tools 
+
+--stashing changes
+git stash save "message" : stashes changes and resets to HEAD
+git stash list : shows stashed changes
+git stash show stash@{#} : show diffs
+git stash show -p stash@{#} : show diffs with edits
+
+--retrieving stashed changes
+git stash pop
+git stash apply
+git stash <pop/apply> stash@{#}
+
+--delete from stash
+git stash drop stash@{#} : delete specific entry
+git stash clear : clears entire stash
+
+
+*********REMOTE COMMANDS**********
+
+--adding a remote repo
+git remote : list remotes
+git remote add <alias> <url>
+git remote -v : shows remote details
+git remote rm <alias> : remove remote
+
+--creating a remote branch
+git push -u <alias> <branch to push>
+git branch -r : list remote branches
+git branch -a : all branches
+
+--cloning a remote repo (pulls down master branch by default)
+git clone <url>
+git clone <url> <project name>
+
+--tracking remote branches
+git config branch.branchname.merge refs/heads/master
+git branch --set-upstream <branchname> origin/<branchname>
+
+--push changes to remote repo
+git push <alias> <branchname> : for non-tracking branch
+git push : for tracking branch
+
+--fetching changes from remote repo
+git fetch <alias> : usually origin
+git fetch : if only one remote repo
+**fetch only updates origin/master, not master
+**therefore not harmful to fetch
+
+--pulling remote branches
+git pull : git fetch + git merge
+git pull <alias> <branchname>
+
+--checkout remote branvhes
+git branch <branchname> <sourcebranch>
+git checkout -b <branchname> <sourcebranch> : checkout + create
+
+--deleting a remote branch
+git push origin :<branchname>
+git push origin --delete <brnachname>
+
+
+*********ALIAS COMMANDS**********
+git config --global alias.<alias> "command"
+
+examples:
+git config --global alias.st "status"
+git config --global alias.lol "log --graph --decorate --online -- abbrev-commit --all"
+
+ 
+
 
 
 
