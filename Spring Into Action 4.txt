@@ -1,0 +1,15 @@
+Spring Into Action Notes
+
+1.1 Simplifying Java Development
+	Four key strategies
+		1. Lightweight, minimally invasive development with POJOs
+		2. Loose coupling through Dependency Injection and interface orientation
+		3. Declarative programming through aspects and common conventions
+		4. Eliminating boilerplate code with aspects and templates
+	
+1.1.1 Unleashing the power of POJOs
+	Spring tries to avoid littering your code with its API
+		Not forced to implement Spring-specific interface or class
+		
+1.1.2 Injecting Dependencies
+	

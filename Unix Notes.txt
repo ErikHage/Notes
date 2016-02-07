@@ -1,0 +1,23 @@
+User Administration
+
+File locations
+	/etc/passwd  - user and password information
+	/etc/shadow  - encrypted password and corresponding account
+	/etc/group   - group information
+	/etc/gshadow - secure group account information
+
+Commands	
+	Groups
+		groupadd
+			groupadd [-g gid [-o]] [-r] [-f] groupname
+		groupmod
+			groupmod -n new_modified_group_name old_group_name
+		groupdel
+			groupdel group_name
+	Users
+		useradd
+			useradd -d homedir -g groupname -m -s shell -u userid accountname
+		usermod
+			$ usermod -d /home/mcmohd20 -m -l mcmohd mcmohd20
+		userdel
+			$ userdel -r mcmohd20
