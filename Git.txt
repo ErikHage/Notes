@@ -30,10 +30,91 @@ git config --global color.ui true
 --initialize
 git init
 
+--status
+git status
+
 --commit
 git add .: add all changes to staging
 git commit -m "message here": commit staged changes
+git commit -a : add + commmit at same time
+git commit -am "message" : -a and message
+
+--viewing commits
+git show <SHA> : log entry and diffs for SHA
 
 --commit log
+git log
+git log --oneline
+git log --author="ErikHage"
+git log -n <number> : returns n most recent messages
+git log --since=2012-06-15 : commits since date
+git log --until=2012-06-15 : commits until date
+git log --graph --decorate --oneline --abbrev-commit --all
+git log --grep="<regex>"
+git log -p : patch log, shows diffs
+git log --stat --summary : lines committed per file
+git log --format=oneline : other formats = short, medium, full, fuller, email, raw
+
+--diffs
+git diff : HEAD vs working directory
+git diff <filename>
+git diff --staged : staged vs HEAD
+git diff --color-words <filename> : red for deletes, green for adds
+git diff <SHA> : current dir vs SHA
+git diff <SHA>..<SHA>
+git diff <SHA>..<SHA> <filename>
+git diff --stat --summary <SHA>..<SHA> <filename>
+git diff --ignore-space-change
+
+--deleting files
+git rm <deleted file name> : not safe_rm, unix style remove
+
+--renaming/moving files
+git mv <filename> <new filename>
+
+--undo changes
+git checkout --<filename> : -- means current branch
+
+--unstaging
+git reset HEAD <filename>
+
+--amending commits (only most recent commit, SHA changes)
+git add <filename>
+git commit --amend -m "message"
+
+--retrieving old versions
+git checkout <SHA> -- <filename>
+git commit -m "reverting changes from <SHA>"
+
+--revert command
+git revert <SHA> : complete commit
+
+--reset command
+git reset --soft : does not change stating or working copies
+get reset --mixed : changes staging to match repository, does not change working copy
+git reset --hard : changed staging and working copies to match repository
+
+--removing untracked files (doesn't effect staged items)
+git clean -n : test run
+git clean -f : force run
+
+--ignoring files
+project/.gitignore : match filenames to ignore
+git config --global core.excludesfile ~/.gitignore.global
+
+--tracking empty directories
+put a small file in there (.gitkeep is commonly used)
+
+--Exploring tree listings
+git ls-tree <tree-ish> : ex -> git ls-tree HEAD
+<SHA> : at least 4 characters, best 8-10
+<SHA>^ : parent commit
+<SHA>^^ / <SHA>~2: grandparent commit
+<SHA>^^^ / <SHA>~3: great grandparent commit
+
+
+*********BRANCHING COMMANDS**********
+
+
 
 
