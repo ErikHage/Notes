@@ -1,0 +1,91 @@
+SBA LOANS
+	--Very few applicants are approved
+		-Of the 15 industries reported as getting the most SBA funding in the past decade, only 1 in 200 business owners in those industries managed to borrow a cent from the SBA. 
+			+Source - http://www.entrepreneur.com/article/228186
+	--Requires detailed business plan
+	--Takes months to process and approve
+	--Major Benefit are the low rates
+	--Allowed Uses
+		-Starting a Business
+		-Working Capital 
+		-Purchasing property
+		-Equipment
+		-Fixtures
+		-Inventory
+		-Lease-hold improvements
+		-Refinancing debt
+	--Summary of small business loan types (SBA + others)
+		-http://www.smarterfinanceusa.com/blog/small-business-startup-loans
+	--Lenders
+		-Through SBA Approved Lenders
+		-Find local lenders via SBA website https://www.sba.gov/tools/linc
+	--Rates
+		--Low interest rates
+		--Maximum rates 4-10% as of May 2015
+	--Amounts
+		-Up to 5m loans
+	--Terms
+		-7-25 years, based on use of money
+
+TYPES OF LOANS	
+	--7(A) Loan for Startups - https://www.sba.gov/loans-grants/see-what-sba-offers/sba-loan-programs/7a-loan-program
+		-Generally variable rate interest
+		-Very few able to qualify (85% or requests denied)
+		-You need great credit, lots of assets, flexible timeline
+		-Allowed Uses	
+			+Real Estate
+			+Equipment
+			+Working Capital
+		-Requirements
+			+Available to both existing businesses and startups
+			+May be used for real estate, equipment, or working capital
+			+Loan amounts up to $5 million, but the average loan amount is $337,730
+			+Loan terms of up to 7 years for working capital, 10 years for equipment, 25 years for real estate
+			+The loan needs to be secured by collateral (usually your personal residence)
+			+A personal guarantee is required of all owners with 20% or greater ownership
+			+There will be a "blanket lien" placed on all assets of owners, both business and personal
+			+10% down payment will be required
+		-Benefits
+			+cheapest financing option for startups
+			+very low interest rates
+	--CDC/504 Loan - https://www.sba.gov/loans-grants/see-what-sba-offers/sba-loan-programs/cdc-504
+		-Allowed Uses	
+			+Real Estate
+			+Equipment
+		-Requirements	
+			+Loan amounts up to $5 million, with terms of 10 or 20 years
+			+Your business must be creating 1 job for every $65,000 in funding ($100,000 if you're a manufacturer)
+			+The assets being acquired serve as collateral, but you will need to personally guarantee the loan
+			+You'll have to prove you couldn't get the funds elsewhere
+			+A 10% down payment will be required
+		-Benefits
+			+Very lows rates (~5% in 2014)
+			+blog has good info: http://www.504blog.com/
+		-Cons
+			+Very few businesses qualify
+			+Process takes several months
+	--Microloans - https://www.sba.gov/content/microloan-program
+		-Need to submit a business plan
+		-Lenders 
+			+https://www.sba.gov/sites/default/files/articles/Microlender_140716.pdf
+		-Allowed Uses	
+			+Real Estate
+			+Equipment
+			+Working Capital
+		-Requirements
+			+Loan amounts up to $50,000, but the average loan is around $13,000
+			+Collateral and personal guarantees are needed, but specific requirements vary by the intermediary
+			+Rates vary but are generally between 8 and 13 percent
+			+Repayment depends on analysis of your business, but the maximum term is six years
+		-Cons	
+			+Required to take business training before being considered
+			+Takes serveral months to process 
+	--Overview - http://cdn2.hubspot.net/hub/373737/file-1765704727-jpg/Blog_Images/sba-loan-types.jpg?t=1456956072172
+
+RESOURCES
+
+http://www.smarterfinanceusa.com/blog/small-business-startup-loans
+http://fitsmallbusiness.com/how-to-get-a-small-business-loan/
+https://www.sba.gov/content/sba-express
+https://www.sba.gov/sites/default/files/files/Loan_Chart_Baltimore_October_2015_Version_A.pdf
+http://www.businessnewsdaily.com/7695-small-business-loan-guide.html
