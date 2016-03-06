@@ -45,6 +45,7 @@ TYPES OF LOANS
 			+A personal guarantee is required of all owners with 20% or greater ownership
 			+There will be a "blanket lien" placed on all assets of owners, both business and personal
 			+10% down payment will be required
+			+Loan Application Checklist: https://www.sba.gov/content/sba-loan-application-checklist
 		-Benefits
 			+cheapest financing option for startups
 			+very low interest rates
@@ -82,10 +83,47 @@ TYPES OF LOANS
 			+Takes serveral months to process 
 	--Overview - http://cdn2.hubspot.net/hub/373737/file-1765704727-jpg/Blog_Images/sba-loan-types.jpg?t=1456956072172
 
+LOAN APPROVAL STEPS
+	--Steps
+		1)Meet with SBA lender and give them enough information to evaluate your loan request for a pre-approval letter
+		  Lets the small business owner know the loan terms he can qualify for before accepting an offer
+		  Borrower accepts terms, possibly puts down a deposit
+		  Full application process will follow
+		2)Underwriting process (approx 2 weeks)
+		  Most SBA lending shops which have the SBA Preferred Lender designation, 
+		  an applicant can expect pre-approval and a loan proposal letter within a week or two of submitting all the information required 
+		  Information required: Personal and business financial statements, 
+			Last three years personal and business tax returns
+			Completed loan application describing the loan request and itemizing the use of loan proceeds
+			Signed authorization for credit and background investigation
+			Management resumes from owners and primary managers
+		  Analysis in 5 categories:
+			Repayment ability – analysis of business and personal cash flow streams
+			Management experience – evaluation of the owners’ expertise, experience and education sufficient for being successful with the business
+			Equity – determination that the borrower’s level of personal cash investment is reasonably balanced against the debt provided by the lender and other small business creditors
+			Credit – determination that the borrowing company and its owners have been reasonably responsible paying other creditors
+			Collateral – determining that the level of collateral provided by the borrower is sufficient for SBA guidelines and the lender’s appetite for risk
+		3)A firm commitment letter will be offered by the lender for acceptance by the future borrower. Upon acceptance, the loan closing process begins.
+		4)Loan Closing Process (1-3 weeks)
+			The loan closing process is preparing for the day when the borrower signs loan documents and the lender funds the loan for the borrower
+			list of closing and funding requirements for the borrower and lender, including, but not limited to, the following:
+			  -A "Note" or "Promise to pay" will be signed by the borrower
+			  -Security documents - required to be files with various government agencies
+			  -Insurance documents - lender insures title of property, collateral, lives and ability to work of borrowers, etc
+			  -Various SBA documents - complete loan application package, lender's underwriting, borrower's authorization for background and credit checks, etc.
+			  -Third party reports - appraisals, assessments, government permits, etc
+
+			  
 RESOURCES
 
+https://www.sba.gov/offices/headquarters/oca/resources/9104
+https://www.sba.gov/blogs/5-tips-successfully-navigating-sba-loan-application-process
+http://fitsmallbusiness.com/how-to-apply-for-an-sba-loan/
+https://www.sba.gov/content/sba-loan-application-checklist
+https://www.sba.gov/category/lender-navigation/steps-sba-lending/7a-loans
 http://www.smarterfinanceusa.com/blog/small-business-startup-loans
 http://fitsmallbusiness.com/how-to-get-a-small-business-loan/
 https://www.sba.gov/content/sba-express
 https://www.sba.gov/sites/default/files/files/Loan_Chart_Baltimore_October_2015_Version_A.pdf
 http://www.businessnewsdaily.com/7695-small-business-loan-guide.html
+https://brucehurta.wordpress.com/2014/03/14/the-sba-loan-approval-process-and-time-frames/
