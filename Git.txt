@@ -217,7 +217,7 @@ git config --global alias.<alias> "command"
 
 examples:
 git config --global alias.st "status"
-git config --global alias.lol "log --graph --decorate --oneline -- abbrev-commit --all"
+git config --global alias.lol "log --graph --decorate --oneline --abbrev-commit --all"
 
  
 
