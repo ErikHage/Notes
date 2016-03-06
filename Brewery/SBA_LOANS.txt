@@ -1,3 +1,8 @@
+SBA OVERVIEW
+	--Offers numerous loan programs to help small business owners finance their business
+	--Small defined by the SBA - https://www.sba.gov/content/summary-size-standards-industry-sector
+	--Doesn't actually lend the money, bank makes the loan, which is backed by SBA
+	
 SBA LOANS
 	--Very few applicants are approved
 		-Of the 15 industries reported as getting the most SBA funding in the past decade, only 1 in 200 business owners in those industries managed to borrow a cent from the SBA. 
@@ -114,8 +119,7 @@ LOAN APPROVAL STEPS
 			  -Third party reports - appraisals, assessments, government permits, etc
 
 			  
-RESOURCES
-
+SOURCES
 https://www.sba.gov/offices/headquarters/oca/resources/9104
 https://www.sba.gov/blogs/5-tips-successfully-navigating-sba-loan-application-process
 http://fitsmallbusiness.com/how-to-apply-for-an-sba-loan/
@@ -127,3 +131,4 @@ https://www.sba.gov/content/sba-express
 https://www.sba.gov/sites/default/files/files/Loan_Chart_Baltimore_October_2015_Version_A.pdf
 http://www.businessnewsdaily.com/7695-small-business-loan-guide.html
 https://brucehurta.wordpress.com/2014/03/14/the-sba-loan-approval-process-and-time-frames/
+https://www.sba.gov/content/summary-size-standards-industry-sector
