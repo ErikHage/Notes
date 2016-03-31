@@ -1,0 +1,132 @@
+Integration Testing auto-configuration
+	@RunWith(SpringJUnit4ClassRunner.class)
+		Enables Spring Integration Testing
+		Loads the spring application context
+		Makes it possible to inject beans from the application context into the test itself via autowiring
+ 
+	@ContextConfiguration(classes={ConfigurationClass1.class, ConfigurationClass2.class, …etc})
+		Loads the spring java configuration from classes (but not SpringBoot auto config)
+               
+	@SpringApplicationConfiguration(classes={ConfigurationClass1.class, ConfigurationClass2.class, …etc})
+		Same as above but enables SpringBoot features (logging, loads external properties, etc)
+ 
+Testing Web Applications
+	MockMvcBuilders.standaloneSetup() – serve one or more manually created and configured controllers
+		More like unit testing
+
+	MockMvcBuilders.webAppContextSetup() – uses Spring application context, which presumably includes one or more configured controllers
+		Integration testing
+		Use @WebAppConfiguration on test class          
+
+	@Autowired
+	private WebApplicationContext webContext
+	private MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(webContext).build(); à usually done in a @Before method
+				   
+	Example GET:
+		@Test
+		public void homePage() throws Exception {
+		  mockMvc.perform(MockMvcRequestBuilders.get("/readingList"))
+			  .andExpect(MockMvcResultMatchers.status().isOk())
+			  .andExpect(MockMvcResultMatchers.view().name("readingList"))
+			  .andExpect(MockMvcResultMatchers.model().attributeExists("books"))
+			  .andExpect(MockMvcResultMatchers.model().attribute("books",
+				  Matchers.is(Matchers.empty())));
+		}
+ 
+		**static imports simplify this to:
+		@Test
+		public void homePage() throws Exception {
+		  mockMvc.perform(get("/readingList"))
+			  .andExpect(status().isOk())
+			  .andExpect(view().name("readingList"))
+			  .andExpect(model().attributeExists("books"))
+			  .andExpect(model().attribute("books", is(empty())));
+		}
+ 
+		Example POST:
+		@Test
+		public void postBook() throws Exception {
+		  mockMvc.perform(post(“/readingList”)
+			.contentType(MediaType.APPLICATION_FORM_URLENCODED
+			.param(“title”, “BOOK TITLE”)
+			.param(“author”, “BOOK AUTHOR”)
+			.param(“isbn”, “1234567890”)
+			.param(“description”, “DESCRIPTION”)
+			.andExpect(status().is3xxRedirection())
+			.andExpect(header().string(“Location”, “/readingList”));
+		}
+ 
+Testing Web Security
+	Setup:
+		<dependency>
+		  <groupId>org.springframework.security</groupId>
+		  <artifactId>spring-security-test</artifactId>
+		  <scope>test</scope>
+		</dependency>
+
+	@Before
+	public void setupMockMvc() {
+	mockMvc = MockMvcBuilders
+		.webAppContextSetup(webContext)
+		.apply(SecurityMockMvcConfigurers.springSecurity())
+		.build();
+	}
+ 
+	@WithMockUser
+		loads security context with a UserDetails using the given username, password, and authorization
+		simplest, can’t return a custom object
+	@WithUserDetails
+		loads security context by looking up a UserDetails object for the given username
+		can return a custom User object (if you configured a custom UserDetailsService bean)
+ 
+	Example:
+	…
+	.andExpect(model.attribute(“reader”, samePropertyValuesAs(expectedReader)))
+	…
+ 
+Testing a running application
+	@WebIntegrationTest – declare that you want Spring Boot to not only create an application context, but also start an embedded servlet container
+		Test using the above annotation and calling the a REST url
+
+Starting the server on a random port
+		Set the server.port property to 0, or
+		@WebIntegrationTest(value={"server.port=0"}), or
+		@WebIntegrationTest(randomPort=true)
+ 
+Using the random port value
+	Spring Boot has the property local.server.port that is set to the random port number
+ 
+	@Value(“${local.server.port}”)
+	private int port;
+	 
+	rest.getForObject(“http://localhost:{port}/testPage”, String.class, port);
+ 
+Testing HTML pages with Selenium (http://www.seleniumhq.org/)
+	Fires up a web browser and executes your test within the context of the browser
+		Provides Firefox, IE, Chrome, Safari, +others     
+		More details - http://manning.com/liang/
+
+	Example test:
+		@RunWith(SpringJUnit4Runner.class)
+		@SpringApplicationConfiguration(classes={SpringConfiguration.class})
+		@WebIntegrationTest(randomPort=true)
+		public class ServerWebTests {
+
+			private static FirefoxDriver browser;
+
+			@Value(“${local.server.port}”)
+			private int port;
+		   
+			@BeforeClass
+			Public static void openBrowser() {
+							browser = new FirefoxDriver();
+							browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			}
+
+			@AfterClass
+			public static void closeBrowser() {
+							browser.quit();
+			}
+
+			//see book for actual test
+		}

@@ -1,0 +1,80 @@
+Turn console banner on/off
+	spring.main.show-banner=false
+ 
+Change server port on embedded Tomcat server
+	server.port=8000
+               
+SSL
+	server.ssl.key-store=
+	server.ssl.key-store-password=
+	server.ssl.key-password=
+ 
+Logging – log4j (exclude logback then include log4j)
+	<dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-starter</artifactId>
+	  <exclusions>
+		<exclusion>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-logging</artifactId>
+		</exclusion>
+	  </exclusions>
+	</dependency>
+ 
+	<dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-starter-log4j</artifactId>
+	</dependency>
+ 
+Logging – manually configure logback – xml file or application.properties
+	For full control over the logging configuration, you can create a logback.xml file at the root of the classpath (in src/main/resources).
+ 
+Properties:
+	logging.path=/var/logs/
+	logging.file=BookWorm.log
+	logging.level.root=WARN
+	logging.level.root.org.springframework.security=DEBUG
+	logging.config.classpath=logging-config.xml
+ 
+DataSource
+	spring.datasource.url=jdbc:mysql://localhost/readinglist
+	spring.datasource.username=dbuser
+	spring.datasource.password=dbpass
+	spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+ 
+Class set values from properties
+	amazon.associateId=habuma-20
+	 
+	@ConfigurationProperties(prefix=”amazon”)
+	Class-level annotation (better to do in a specialized properties bean)
+	 
+	Instance variable + getter and setter
+	 
+ 
+Property Sources (in order of precedence)
+	Command-line arguments
+	JNDI attributes from java:comp/env
+	JVM system properties
+	Operating system environment variables
+	Randomly generated values for properties prefixed with random.* (referenced when setting other properties, such as `${random.long})
+	An application.properties or application.yml file outside of the application
+	An application.properties or application.yml file packaged inside of the application
+	Property sources specified by @PropertySource
+	Default properties
+	 
+Application.properties locations (in order of precedence)
+	Externally, in a /config subdirectory of the directory from which the application is run
+	Externally, in the directory from which the application is run
+	Internally, in a package named “config”
+	Internally, at the root of the classpath 
+ 
+Configuring with profiles
+	spring.profiles.active=<profile name>
+ 
+conditional config:
+	use applications.properties files with profile names: application-{profile}.properties
+	only need to configure profile-specific properties, will default to application.properties if not included in the specific
+ 
+Custom error pages
+	File called error.html placed in folder with other views
+ 
