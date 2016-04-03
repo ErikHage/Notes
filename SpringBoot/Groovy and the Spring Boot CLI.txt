@@ -1,0 +1,63 @@
+Setting up a Spring Boot CLI Project
+	No strict directory structure
+               
+Eliminating code noise with Groovy
+	No qualifiers required – i.e. public, private, etc.
+	No accessor methods needed (no getters/setters)
+               
+	A book class:
+		class Book {
+			Long id
+			String reader
+			String isbn
+			String title
+			String author
+			String description
+		}
+ 
+The Spring Boot CLI is magic
+	The CLI is able to leverage Spring Boot auto-configuration and starter dependencies.
+	The CLI is able to detect when certain types are in use and automatically resolve the appropriate dependency libraries to support those types.
+	The CLI knows which packages several commonly used types are in and, if those types are used, adds those packages to Groovy’s default packages.
+	By applying both automatic dependency resolution and auto-configuration, the CLI can detect that it’s running a web application and automatically include an embedded web container (Tomcat by default) to serve the application.    
+	 
+Grabbing Dependencies
+	If none of the Groovy code directly references a class, there will be no compilation failures to trigger them to be resolved automatically. Therefore, you have to help the CLI out a bit by adding the @Grab dependencies in the Grabs class.
+
+	Groovy script:
+		@Grab("h2")
+		@Grab("spring-boot-starter-thymeleaf")
+		class Grabs {}
+ 
+Alternate uses
+	@Grab(group="com.h2database", module="h2", version="1.4.190")
+	@Grab("com.h2database:h2:1.4.185")
+	@Grab("com.h2database:h2")
+	@Grab("h2")
+               
+	Groovy’s Grape (Groovy Adaptable Packaging Engine or Groovy Advanced Packaging Engine)
+		Enables Groovy scripts to download dependency libraries at runtime without using a build tool like Maven or Gradle
+               
+Overriding default dependency versions
+	@GrabMetadata("com.myorg:custom-versions:1.0.0")
+	This will load a properties file named custom-versions.properties from a Maven repository in the com/myorg directory. Each line in the properties file should have a group ID and module ID as the key, and the version as the value. For example, to override the default version for H2 with 1.4.186, you can point @GrabMetadata at a properties file containing the following line: com.h2database:h2=1.4.186
+ 
+Adding dependency repositories
+	By default dependencies are grabbed from the maven central repository (http://repo1.maven.org/maven2/)
+	@GrabResolver annotation enables you to specify additional repositories from which dependencies can be fetched.
+		@GrabResolver(name='jboss', root='https://repository.jboss.org/nexus/content/groups/public-jboss')
+               
+Running tests with the CLI
+	Offers a test command for running tests
+	Run a specific test
+		$ spring test tests/ReadingListControllerTest.groovy
+	Run a directory of tests
+		$ spring test tests
+ 
+Creating a deployable artifact
+	Package up the entire project, including all dependencies, Groovy, and an embedded Tomcat, into a single executable JAR file
+		$ spring jar ReadingList.jar .
+	Once complete, you’ll be able to run the app at the command line (without the CLI) like this:
+		$ java -jar ReadingList.jar
+	Can also be deployed to several Platform-as-a-Service (PaaS) cloud platforms
+ 
