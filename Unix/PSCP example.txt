@@ -1,0 +1,7 @@
+pscp D:\Git\TheFeralRooster_Node\data\news.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+
+pscp D:\Git\TheFeralRooster_Node\data\hobbies.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+
+pscp D:\Git\TheFeralRooster_Node\data\projects.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+
+pscp D:\Git\TheFeralRooster_Node\data\skills.json ehage@107.170.110.210:/home/ehage/config/theferalrooster

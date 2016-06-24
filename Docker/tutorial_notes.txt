@@ -1,0 +1,86 @@
+Docker tutorial 3 - Fun with Volumes
+ 
+                docker inspect <image name>
+                docker history <image name>
+                docker kill $(docker ps -q) -kill all
+                docker rm $(docker ps -aq) -remove all
+ 
+                Layers
+                                1-Kernal
+                                2-base (ubuntu)
+                                3-Images
+ 
+                Volumes
+                                docker run -it -v /erik1 containername
+                                                lives as long as container (persists through stops and starts)
+                                               
+                                Dockerfile => VOLUME /erik1
+ 
+                                Access to host file system
+                                                docker run -it -v /home/ehage/erik1:/erik1 <image name>
+                                               
+                                Mount file system as readonly
+                                                docker run -it -v ~/erik1:/erik1:ro <image name>
+                                               
+                                Mounts filesystems from other containers
+                                                docker run -it --name erik2 --volumes-from erik1 <image_name>
+                                               
+                                Create a backup
+                                                docker run --rm --volumes-from erik1 -v $(pwd):/backup <image name> tar cvf /backup/erik2.tar /erik2
+                               
+Docker tutorial 4 - More Run with a couple extra goodies
+ 
+                docker search <image name>
+                docker search -s 10 <image name>   (greater than 10 starts)
+                docker pull <image name>:<tag name>    (docker pull ubuntu:14.04, default is "latest")
+                docker history <image id>
+               
+                //watch it happen
+                docker run -itd ubuntu sleep 10 && watch docker ps
+               
+                //kill and remove all
+                docker kill $(docker ps -q) && docker rm $(docker ps -aq)
+               
+                //run a while loop in an ubuntu container
+                docker run -itd --name job1 ubuntu /bin/sh -c "while true; do echo Docker Rocks; sleep 1; done"
+               
+                docker logs -h                                                    (logs help)
+                docker logs -ft job1                                         (follow logs)
+                docker kill $(docker ps -lq)           (kills the last one, can also use rm to remove it)
+               
+                docker stats <container name>
+                watch docker top <container name> -ef
+               
+                docker inspect -h
+                docker inspect <image name>
+                docker inspect --format '{{.Name}} {{.State.Running}}' <image name>
+               
+                Labels - new to Docker 1.6
+                                docker run -itd --name job4 --label=NodeNumber=3 --label=NodeType=cluster <image name>
+                                docker inspect job4 > job4.out                  (labels present in inspect)
+                                docker inspect --format '{{.Name}} {{.Config.Labels.NodeType}}' job4
+                               
+                ULimit - new to Docker 1.6 (max number of stuff in ubuntu)
+                                cid=$(docker run -itd --ulimit nofile=1024:1024 ubuntu)
+                                docker attach cid
+                                ulimit -a
+                               
+Docker Tutorial 5 - Basic Networking
+               
+                certified apache image - httpd
+                ip a     (network config)
+                docker0: virtual bridge default subnet 172.17.42.1
+                brctl show docker0
+               
+                docker exec -it <sid> /bin/sh
+                                ip a -> eth0 ip in the subnet, pairing between virtual interface
+                                traceroute docker.com  -> gateway docker0
+                               
+                default firewall and NAT rules
+               
+                sudo iptables -t nat -L -n
+                                MASQUERADE -> inbound to container, all ports blocked
+                               
+                docker run -itd -P <image name>     (-P = any exposed ports are mapped dynamically to high ports)
+                docker run -itd -p 8080:80 <image name>  (-p 8080:80 maps ports specifically)
+                above leads to new MASQUERADE and DNAT rules

@@ -1,0 +1,24 @@
+
+Remove all untagged images
+
+docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi
+
+
+Remove all week+ old containers
+docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+docker ps -a | grep 'Exited' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+
+
+
+
+
+
+
+Run RW&B node
+sudo docker run -d -p 32769:3000 ehage/redwhiteandbrew_node
+
+Run TFR node
+sudo docker run -d -p 32770:3001 ehage/theferalrooster_node
+
+Run nginx
+sudo docker run -d -i -t -p 80:80 ehage/nginx_theferalrooster
