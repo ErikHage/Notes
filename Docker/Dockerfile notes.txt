@@ -1,0 +1,78 @@
+Docker Tutorial 6/7 - Dockerfiles pt 1 & 2
+ 
+tutum -> good to learn by reading these guys
+tianon -> good for best practices (has a good nginx one)
+docker/docker Dockerfile is a nice example
+ 
+@docker.com -> best practices for writing dockerfiles
+ 
+                FROM: what are you going to build your base image from?
+                                FROM <image>:<tag>
+                                ex - FROM ubuntu:14.04
+ 
+                MAINTAINER: who wrote the Dockerfile
+                                MAINTAINER <name>
+                                ex - MAINTAINER Erik Hage <ehage4@gmail.com>
+                               
+                RUN: commands being run while image is being built
+                                RUN <commmand> - shell form
+                                RUN ["executable", "param1", "param2"] - exec form
+                                ex - RUN apt-get -y install apache2
+                                put multiple commands in one RUN - otherwise multiple layers
+                               
+                CMD: default command for docker run
+                                CMD ["executable", "param1", "param2"]
+                                CMD ["param1", "param2"] - as default parameters to ENTRYPOINT
+                                CMD command param1 param2 - shell form
+                                ex - CMD ["/usr/sbin/apache2ctrl", "-D", "FOREGROUND"]
+ 
+                LABEL: adds metadata to an image, can be viewed using docker inspect
+                                LABEL <key>=<value> <key>=<value> <key>=<value> ...
+                                ex - LABEL version="1.0"
+ 
+                EXPOSE: exposes a port to the host
+                                EXPOSE <port> [<port> ...]
+                                ex - EXPOSE 80 3001 3002
+                               
+                ENV: environment variables, supported in ADD, COPY, ENV, EXPOSE, LABEL, USER, WORKDIR, VOLUME, STOPSIGNAL, and ONBUILD (when combined with one of the others)
+                                ENV <key> <value>
+                                ex - ENV REFRESHED_AT 2016-04-23
+                               
+                ADD: look for files on base directory and copy it to location (after run if you're overriding a file)(COPY is similar)
+                                ADD <src>... <dest>
+                                ADD ["<src>", ... "<dest>"] - required if paths contain whitespace
+                                ex - ADD index.html /var/www/html/index.html(absolute, omit leading / in dest for relative to WORKDIR)                                               
+                               
+                COPY: copies new files from src to dest
+                                COPY <src>... <dest>
+                                COPY ["<src>", ... "<dest>"] - required if paths contain whitespace
+                                ex - COPY test relativeDir/ or COPY test /absoluteDir/    
+ 
+                ENTRYPOINT: not overridden by RUN (CMD can be), should be defined when running container as an executable
+                                ENTRYPOINT ["executable", "param1", "param2"] - exec form, preferred
+                                ENTRYPOINT command param1 param2 - shell form
+                                ex - ENTRYPOINT ["/usr/sbin/apache2ctrl"]
+               
+                VOLUME: creates mount points
+                                VOLUME ["/data"]
+                                ex - VOLUME ["/var/www/html"]
+                               
+                USER: username to use when running the image and for any RUN, CMD, and ENTRYPOINT instructions
+                                USER daemon
+                                ex - USER ehage
+                               
+                WORKDIR: working directory for any RUN, CMD, ENTRYPOINT, COPY, or ADD instructions. Subsequent commands will be relative to first
+                                WORKDIR /path/to/workdir
+                                ex - WORKDIR /a
+                               
+                ARG: defines a variable that users can pass at build time to the builder (--build-arg <varname>=<value>)
+                                ARG <name>[=<default value>]
+                                ex - ARG buildno   or   ARG buildno=1
+                               
+                ONBUILD: trigger when used as the base for another build
+                                ONBUILD [instruction]
+                                ex - ONBUILD ADD ./app/src
+                               
+                STOPSIGNAL: sets the system call signla that will be sent ot the container to exit
+                                STOPSIGNAL signal
+                                ex - STOPSIGNAL SIGKILL

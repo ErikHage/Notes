@@ -1,0 +1,38 @@
+case object MNil extends MList
+case class MCons(head: Int, tail: MList) extends MList
+sealed trait MList {
+  def length: Int = this match {
+    case MNil => 0
+    case MCons(h, t) => 1 + t.length
+  }
+  def sum: Int = this match {
+    case MNil => 0
+    case MCons(h, t) => h + t.sum
+  }
+  def map(f: Int => Int): MList = this match {
+    case MNil => MNil
+    case MCons(h, t) => MCons(f(h), t.map(f))
+  }
+  def filter(f: Int => Boolean): MList = this match {
+    case MNil => MNil
+    case MCons(h, t) => {
+      if (f(h)) MCons(h, t.filter(f))
+      else t.filter(f)
+    }
+  }
+  def append(e: Int): MList = this match {
+    case MNil => MCons(e, MNil)
+    case MCons(h, t) => MCons(h, t.append(e))
+  }
+  def reverse: MList = this match {
+    case MNil => MNil
+    case MCons(h, t) => t.reverse.append(h)
+  }
+}
+val myList: MList = MCons(1, MCons(2, MCons(3, MCons(4, MNil))))
+myList.length
+myList.sum
+myList.map(_ + 1)
+myList.filter(_ % 2 == 0)
+myList.append(5)
+myList.reverse

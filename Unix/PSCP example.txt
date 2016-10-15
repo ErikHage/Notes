@@ -1,7 +1,31 @@
-pscp D:\Git\TheFeralRooster_Node\data\news.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+cd C:\Program Files (x86)\putty
 
-pscp D:\Git\TheFeralRooster_Node\data\hobbies.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+#TheFeralRooster_Node
 
-pscp D:\Git\TheFeralRooster_Node\data\projects.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+pscp D:\Git\TheFeralRooster_Node\data\news.json ehage@107.170.110.210:/home/ehage/dockerApps/feralRoosterWeb/config
 
-pscp D:\Git\TheFeralRooster_Node\data\skills.json ehage@107.170.110.210:/home/ehage/config/theferalrooster
+pscp D:\Git\TheFeralRooster_Node\data\hobbies.json ehage@107.170.110.210:/home/ehage/dockerApps/feralRoosterWeb/config
+
+pscp D:\Git\TheFeralRooster_Node\data\projects.json ehage@107.170.110.210:/home/ehage/dockerApps/feralRoosterWeb/config
+
+pscp D:\Git\TheFeralRooster_Node\data\skills.json ehage@107.170.110.210:/home/ehage/dockerApps/feralRoosterWeb/config
+
+
+#RedWhiteAndBrew_Node
+pscp D:\Git\RedWhiteAndBrew_Node\data\beers.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\faq.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\missionStatement.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\profiles.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\supporters.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\contact.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+pscp D:\Git\RedWhiteAndBrew_Node\data\users.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config
+
+
+#try to do it w/o password
+pscp -i "D:\Programming\SSH\private.ppk" D:\Git\RedWhiteAndBrew_Node\data\beers.json ehage@107.170.110.210:/home/ehage/dockerApps/breweryWeb/config

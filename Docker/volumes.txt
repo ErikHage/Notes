@@ -1,0 +1,11 @@
+
+DANGLING VOLUMES (orphan volumes)
+-refers to container volumes that are no longer referenced by a container
+
+find dangling volumes:
+	docker volume ls -f dangling=true
+	
+remove volume:
+	docker volume rm <volume_name>
+	
+	
